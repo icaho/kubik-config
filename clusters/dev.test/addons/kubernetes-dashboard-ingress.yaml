@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubernetes-dashboard
+  namespace: kube-system
+  labels:
+    app: kubernetes-dashboard
+    kubernetes.io/cluster-service: "true"
+spec:
+  rules:
+  - host: dev.test
+    http:
+      paths:
+      - backend:
+          serviceName: kubernetes-dashboard
+          servicePort: 80
