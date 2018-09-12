@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/cluster-service: "true"
 spec:
   rules:
-  - host: dev.test
+  - host: localhost
     http:
       paths:
       - backend:
