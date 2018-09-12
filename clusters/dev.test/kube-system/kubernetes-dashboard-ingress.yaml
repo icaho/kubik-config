@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   rules:
-  - host: localhost
+  - host: dev.test
     http:
       paths:
       - backend:
