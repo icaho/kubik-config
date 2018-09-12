@@ -3,12 +3,9 @@ kind: Ingress
 metadata:
   name: kubernetes-dashboard
   namespace: kube-system
-  labels:
-    app: kubernetes-dashboard
-    kubernetes.io/cluster-service: "true"
 spec:
   rules:
-  - host: dev.test
+  - host: test.tentonpenguin.co.uk
     http:
       paths:
       - backend:

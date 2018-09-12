@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   rules:
-  - host: dev.test
+  - host: test.tentonpenguin.co.uk
     http:
       paths:
       - backend:
