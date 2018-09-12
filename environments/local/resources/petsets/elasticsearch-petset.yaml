@@ -1,0 +1,33 @@
+apiVersion: apps/v1alpha1
+kind: PetSet
+metadata:
+  labels:
+    type: resource
+    service: elasticsearch
+  name: elasticsearch
+spec:
+  serviceName: "elasticsearch"
+  replicas: 1
+  selector:
+    matchLabels:
+      type: resource
+      service: elasticsearch
+  template:
+    metadata:
+      labels:
+        type: resource
+        service: elasticsearch
+        version: "1.6.2"
+    spec:
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      containers:
+      - image: docker.io/elasticsearch:1.6.2
+        imagePullPolicy: IfNotPresent
+        name: elasticsearch
+        ports:
+        - containerPort: 9200
+          protocol: TCP
+        - containerPort: 9300
+          protocol: TCP

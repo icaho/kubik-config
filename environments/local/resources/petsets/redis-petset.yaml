@@ -1,0 +1,31 @@
+apiVersion: apps/v1alpha1
+kind: PetSet
+metadata:
+  labels:
+    type: resource
+    service: redis
+  name: redis
+spec:
+  serviceName: "redis"
+  replicas: 1
+  selector:
+    matchLabels:
+      type: resource
+      service: redis
+  template:
+    metadata:
+      labels:
+        type: resource
+        service: redis
+        version: "3.2.4"
+    spec:
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      containers:
+      - image: docker.io/redis:3.2.4-alpine
+        imagePullPolicy: IfNotPresent
+        name: redis
+        ports:
+        - containerPort: 6379
+          protocol: TCP

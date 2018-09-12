@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticsearch
+data:
+  elasticsearch-host: "elasticsearch"
+  elasticsearch-port: "9200"
+  elasticsearch-search-index-name: "fun_n_games"
+  elasticsearch-search-index-shards: "1"
+  elasticsearch-search-index-replicas: "0"
