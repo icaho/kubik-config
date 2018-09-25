@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: test-site-deployment
+  namespace: test-site
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test-site
+    spec:
+      containers:
+      - image: nginx:1.13.6-alpine
+        imagePullPolicy: Always
+        name: test-site
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: test-site-configs
+          mountPath: /etc/nginx/conf.d
+      # Load the configuration files for nginx
+      volumes:
+        - name: test-site-configs
+          configMap:
+            name: test-site-config
