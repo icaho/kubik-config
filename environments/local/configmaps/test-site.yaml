@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: test-site-config
-  namespace: test-site
+  namespace: local
 data:
   default.conf: |
     upstream node {
