@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: test-site-config
 data:
-  default.conf: |
+  default-site: |
     upstream node {
       # CHANGE ME
       server icaho.github.io;

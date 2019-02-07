@@ -15,11 +15,11 @@ spec:
         name: test-site
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: test-site-configs
-          mountPath: /etc/nginx/conf.d
       # Load the configuration files for nginx
       volumes:
         - name: test-site-configs
           configMap:
             name: test-site-config
+            items:
+              - key: default-site
+                path: /etc/nginx/conf.d/test-site.conf
